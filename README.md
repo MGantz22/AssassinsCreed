@@ -1,19 +1,29 @@
 <h1 align="center">Assasins Creed</h1>
+<img
+  src="https://store.ubisoft.com/on/demandware.static/-/Sites-masterCatalog/default/dw757e2c61/images/pdpbanner/62ea4f8e09372571f2736a71-bg.jpg"
+  alt="photobanner"
+  style="display: inline-block; margin: 0 auto; max-width: max;">
+
+
+
+
+
+
   <p align="center">
     <img src="https://img.shields.io/badge/License-MIT-blue.svg" />
     <img src="https://img.shields.io/badge/Version-1.0.0-blue.svg" />
   </p>
   
   <p align="center">
-    <a href="#description">Description</a> •
+    :knife:<a href="#description">Description</a> •
     <a href="#technologies-used">Technologies Used</a> •
     <a href="#setup-instructions">Setup Instructions</a> •
     <a href="#further-exploration">Further Exploration</a> •
     <a href="#known-bugs">Known Bugs</a> •
-    <a href="#license">License</a>
+    <a href="#license">License</a>:knife:
 
     
-  </p>
+  </p> 
 
 ---
 
