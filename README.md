@@ -1,4 +1,4 @@
-<h1 align="center">Assasin's Creed</h1>
+<h1 align="center">Assasin's Creed Boundry Bay</h1>
 <img
   src="https://store.ubisoft.com/on/demandware.static/-/Sites-masterCatalog/default/dw757e2c61/images/pdpbanner/62ea4f8e09372571f2736a71-bg.jpg"
   alt="photobanner"
@@ -29,7 +29,7 @@
 
   ## Description
   
-  A 3D Assassins Creed clone made with Unity
+  Epicodus Capstone project | ⚔️ 3D Unity game based off Assassins Creed ⚔️ 
 
 
 ## Technologies Used
@@ -39,7 +39,7 @@
 * Visual Studio
 * Git
 * Unity Asset Store
-* Sprites
+* Mixamo Library 
 * AI Path Finding
 
 
@@ -56,18 +56,18 @@
 1. Clone or download this repository to your machine.
 2. Open your shell (e.g., Terminal or GitBash) and add your .gitignore file and commit it before adding any other files. 
 3. Navigate to the Unity Hub to this project's production directory called "AssassinsCreed". 
-4. Navigate to (Assets/Scenes/FinalScene)
+4. Navigate to (Assets/Scenes/AssassinCreed)
 
 
 ## Known Bugs
 
-* _If you have any issues or have questions, ideas or concerns please contact us at [mgantz22@icloud.com]_
+* _If you have any issues or have questions, ideas or concerns please contact me at mgantz22@icloud.com_
 
 ## License
 
-
-
 MIT License
+
+Copyright (c) _2023_ _Mitchell Gantz_
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -87,4 +87,3 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-Copyright (c) _2023_ _Mitchell Gantz_
