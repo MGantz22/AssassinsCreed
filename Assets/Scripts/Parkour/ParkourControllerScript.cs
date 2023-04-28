@@ -7,6 +7,8 @@ public class ParkourControllerScript : MonoBehaviour
     public EnvironmentChecker environmentChecker;
     bool playerInAction;
     public Animator animator;
+    [Header("Parkour Action Area")]
+    public List<NewParkourAction> newParkourActions;
 
     private void Update()
     {
@@ -16,8 +18,14 @@ public class ParkourControllerScript : MonoBehaviour
 
             if(hitData.hitFound)
             {
+                foreach (var action in newParkourActions)
+                {
+
+
+                }
                 StartCoroutine(PerformParkourAction());
             }
+            
         }
     }
 
