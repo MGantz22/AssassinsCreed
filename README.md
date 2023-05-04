@@ -26,10 +26,16 @@
   </p> 
 
 ---
+## Description
 
-  ## Description
+ * Epicodus Capstone project | ⚔️ 3D Unity game based off The Assassin's Creed series ⚔️ 
+ 
+ ## Overview
+ * Assassin's Creed is a popular video game franchise that has been developed by Ubisoft since 2007. The series follows the story of various assassins throughout history who are fighting against a secret organization known as the Templars.
+
+* The gameplay of Assassin's Creed typically involves a combination of stealth, combat, and parkour-style movement. The main character, who is usually an assassin, must navigate through a historically accurate open-world environment to complete various missions and objectives. The player can also collect various items, weapons, and equipment to aid them in their mission.
   
-  Epicodus Capstone project | ⚔️ 3D Unity game based off Assassins Creed ⚔️ 
+  
 
 
 ## Technologies Used
