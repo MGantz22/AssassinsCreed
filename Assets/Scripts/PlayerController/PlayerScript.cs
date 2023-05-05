@@ -50,6 +50,10 @@ public class PlayerScript : MonoBehaviour
                 playerLedgeMovement();
                 Debug.Log("player on ledge");
             }
+
+            animator.SetFloat("movementValue", velocity.magnitude / movementSpeed, 0.2f, Time.deltaTime);
+
+
         }
         else
         {
@@ -80,7 +84,7 @@ public class PlayerScript : MonoBehaviour
 
         CC.Move(velocity * Time.deltaTime);
 
-        if (movementAmount > 0)
+        if (movementAmount > 0 && moveDir.magnitude > 0.2f)
         {
             requiredRotation = Quaternion.LookRotation(moveDir);
         }
