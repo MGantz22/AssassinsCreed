@@ -27,6 +27,8 @@ public class PlayerScript : MonoBehaviour
     public LedgeInfo LedgeInfo { get; set; }
     [SerializeField] float fallingSpeed;
     [SerializeField] Vector3 moveDir;
+    [SerializeField] Vector3 requiredMoveDir;
+    Vector3 velocity;
 
 
 
@@ -35,7 +37,7 @@ public class PlayerScript : MonoBehaviour
         if(!playerControl)
             return;
 
-        var velocity = Vector3.zero;
+        velocity = Vector3.zero;
         if(onSurface)
         {
             fallingSpeed = -0.5f;
@@ -45,6 +47,7 @@ public class PlayerScript : MonoBehaviour
             if(playerOnLedge)
             {
                 LedgeInfo = ledgeInfo;
+                playerLedgeMovement();
                 Debug.Log("player on ledge");
             }
         }
@@ -73,16 +76,16 @@ public class PlayerScript : MonoBehaviour
 
         var movementInput = (new Vector3(horizontal, 0, vertical)).normalized;
 
-        var movementDirection = MCC.flatRotation * movementInput;
+        requiredMoveDir = MCC.flatRotation * movementInput;
 
-        CC.Move(movementDirection * movementSpeed * Time.deltaTime);
+        CC.Move(velocity * Time.deltaTime);
 
         if (movementAmount > 0)
         {
-            requiredRotation = Quaternion.LookRotation(movementDirection);
+            requiredRotation = Quaternion.LookRotation(moveDir);
         }
 
-        moveDir = movementDirection;
+        moveDir = requiredMoveDir;
 
         transform.rotation = Quaternion.RotateTowards(transform.rotation, requiredRotation, rotSpeed * Time.deltaTime);
 
@@ -92,6 +95,17 @@ public class PlayerScript : MonoBehaviour
     void SurfaceCheck()
     {
         onSurface = Physics.CheckSphere(transform.TransformPoint(surfaceCheckOffset), surfaceCheckRadious, surfaceLayer);
+    }
+
+    void playerLedgeMovement()
+    {
+        float angle = Vector3.Angle(LedgeInfo.surfaceHit.normal, requiredMoveDir);
+
+        if(angle < 90)
+        {
+            velocity = Vector3.zero;
+            moveDir = Vector3.zero;
+        }
     }
 
     private void OnDrawGizmosSelected()
