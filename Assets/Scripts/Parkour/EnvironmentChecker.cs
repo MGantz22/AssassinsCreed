@@ -9,6 +9,10 @@ public class EnvironmentChecker : MonoBehaviour
     public float heightRayLength = 6f;
     public LayerMask obstacleLayer;
 
+    [Header("Check Ledges")]
+    [SerializeField] float ledgeRayLength = 11f;
+    [SerializeField] float ledgeRayHeightThreshold = 0.76f;
+
     public ObstacleInfo CheckObstacle()
     {
 
@@ -30,6 +34,28 @@ public class EnvironmentChecker : MonoBehaviour
         }
 
         return hitData;
+    }
+
+    public bool CheckLedge(Vector3 movementDirection)
+    {
+        if(movementDirection == Vector3.zero)
+            return false;
+
+        float ledgeOriginOffset = 0.5f;  
+        var ledgeOrigin = transform.position + movementDirection * ledgeOriginOffset + Vector3.up;
+
+        if(Physics.Raycast(ledgeOrigin, Vector3.down, out RaycastHit hit, ledgeRayLength, obstacleLayer))
+        {
+            Debug.DrawRay(ledgeOrigin, Vector3.down * ledgeRayLength, Color.blue);
+            float Ledgeheight = transform.position.y - hit.point.y;
+
+            if(Ledgeheight > ledgeRayHeightThreshold)
+            {
+                return true;
+            }
+        }
+
+        return false; 
     }
 }
 
