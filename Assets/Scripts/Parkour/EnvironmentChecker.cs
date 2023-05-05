@@ -37,6 +37,7 @@ public class EnvironmentChecker : MonoBehaviour
     public bool CheckLedge(Vector3 movementDirection, out LedgeInfo ledgeInfo)
     {
         ledgeInfo = new LedgeInfo();
+
         if(movementDirection == Vector3.zero)
             return false;
 
@@ -74,7 +75,6 @@ public struct ObstacleInfo
     public bool heightHitFound;
     public RaycastHit hitInfo;
     public RaycastHit heightInfo;
-
 }
 
 public struct LedgeInfo
