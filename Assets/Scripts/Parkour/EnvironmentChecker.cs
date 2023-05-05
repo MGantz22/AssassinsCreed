@@ -29,15 +29,14 @@ public class EnvironmentChecker : MonoBehaviour
             hitData.heightHitFound = Physics.Raycast(heightOrigin, Vector3.down, out hitData.heightInfo, heightRayLength, obstacleLayer);
 
             Debug.DrawRay(heightOrigin, Vector3.down * heightRayLength, (hitData.heightHitFound) ? Color.blue : Color.green);
-
-
         }
 
         return hitData;
     }
 
-    public bool CheckLedge(Vector3 movementDirection)
+    public bool CheckLedge(Vector3 movementDirection, out LedgeInfo ledgeInfo)
     {
+        ledgeInfo = new LedgeInfo();
         if(movementDirection == Vector3.zero)
             return false;
 
@@ -47,11 +46,21 @@ public class EnvironmentChecker : MonoBehaviour
         if(Physics.Raycast(ledgeOrigin, Vector3.down, out RaycastHit hit, ledgeRayLength, obstacleLayer))
         {
             Debug.DrawRay(ledgeOrigin, Vector3.down * ledgeRayLength, Color.blue);
-            float Ledgeheight = transform.position.y - hit.point.y;
 
-            if(Ledgeheight > ledgeRayHeightThreshold)
+            var surfaceRaycastOrigin = transform.position + movementDirection - new Vector3(0, 0.1f, 0);
+            if(Physics.Raycast(surfaceRaycastOrigin, - movementDirection, out RaycastHit surfaceHit, 2, obstacleLayer))
             {
-                return true;
+
+            
+                float Ledgeheight = transform.position.y - hit.point.y;
+
+                if(Ledgeheight > ledgeRayHeightThreshold)
+                {
+                    ledgeInfo.angle = Vector3.Angle(transform.forward, surfaceHit.normal);
+                    ledgeInfo.height = Ledgeheight;
+                    ledgeInfo.surfaceHit = surfaceHit;
+                    return true;
+                }
             }
         }
 
@@ -65,4 +74,12 @@ public struct ObstacleInfo
     public bool heightHitFound;
     public RaycastHit hitInfo;
     public RaycastHit heightInfo;
+
+}
+
+public struct LedgeInfo
+{
+    public float angle;
+    public float height;
+    public RaycastHit surfaceHit;
 }
