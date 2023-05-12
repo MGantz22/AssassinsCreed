@@ -9,6 +9,9 @@ public class ParkourControllerScript : MonoBehaviour
     public Animator animator;
     public PlayerScript playerScript;
     [SerializeField] NewParkourAction jumpDownParkourAction;
+    float autoJumpHeightLimit = 2;
+
+
     
     [Header("Parkour Action Area")]
     public List<NewParkourAction> newParkourActions;
@@ -31,9 +34,13 @@ public class ParkourControllerScript : MonoBehaviour
             }
         }
 
-        if(playerScript.playerOnLedge && !playerInAction && !hitData.hitFound && Input.GetButton("Jump"))
+        if(playerScript.playerOnLedge && !playerInAction && !hitData.hitFound)
         {
-            if(playerScript.LedgeInfo.angle <= 90)
+            bool canJump = true;
+            if(playerScript.LedgeInfo.height > autoJumpHeightLimit && !Input.GetButton("Jump"))
+                canJump = false;
+
+            if(canJump && playerScript.LedgeInfo.angle <= 90)
             {
                 playerScript.playerOnLedge = false;
                 StartCoroutine(PerformParkourAction(jumpDownParkourAction));
