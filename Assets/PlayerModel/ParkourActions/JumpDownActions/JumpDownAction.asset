@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22aa5ab0bbd845244980de93c73561fa, type: 3}
   m_Name: JumpDownAction
   m_EditorClassIdentifier: 
-  animationName: 
+  animationName: JumpDown
   barrierTag: 
   minimumHeight: 0
   maximumHeight: 0
