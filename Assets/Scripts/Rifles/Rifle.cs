@@ -10,6 +10,7 @@ public class Rifle : MonoBehaviour
    public float shootingRange = 100f;
    public  Animator animator;
    public bool isMoving;
+   public PlayerScript playerScript;
 
    [Header("Rifle Ammo and reloading")]
    private int maximumAmmunition = 1;
@@ -17,14 +18,12 @@ public class Rifle : MonoBehaviour
    public int mag;
    public float reloadingTime;
    private bool setReloading;
+   public GameObject crosshair;
 
    private void Start()
    {
         presentAmmunition = maximumAmmunition;
    }
-
-
-
 
    private void Update()
    {
@@ -56,6 +55,18 @@ public class Rifle : MonoBehaviour
         else if(!Input.GetMouseButtonDown(0))
         {
             animator.SetBool("Shooting", false);
+        }
+        
+        if(Input.GetMouseButtonDown(1))
+        {
+            animator.SetBool("RifleAim", true);
+             //crosshair.SetActive(true);
+        }
+
+        else if(!Input.GetMouseButtonDown(1))
+        {
+            animator.SetBool("RifleAim", false);
+            // crosshair.SetActive(false);
         }
         
    }
@@ -92,11 +103,16 @@ public class Rifle : MonoBehaviour
    {
 
         setReloading = true;
+        animator.SetFloat("movementValue", 0f);
+        playerScript.movementSpeed = 0f;
         animator.SetBool("ReloadRifle", true);
         //reloading anim
         yield return new WaitForSeconds(reloadingTime);
         animator.SetBool("ReloadRifle", false);
         presentAmmunition = maximumAmmunition;
         setReloading = false;
+        animator.SetFloat("movementValue", 0f);
+        playerScript.movementSpeed = 5f;
+        
    }
 }
