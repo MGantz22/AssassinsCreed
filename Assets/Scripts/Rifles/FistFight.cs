@@ -14,6 +14,7 @@ public class FistFight : MonoBehaviour
     public float giveDamage = 10f;
     public float attackRadius;
     public LayerMask knightLayer;
+    public Inventory inventory;
 
     [SerializeField] Transform LeftHandPunch;
     [SerializeField] Transform RightHandPunch;
@@ -36,6 +37,9 @@ public class FistFight : MonoBehaviour
         {
             playerScript.movementSpeed = 5f;
            anim.SetBool("FistFightActive", false);
+           inventory.fistFightMode = false;
+           Timer = 0f;
+           this.gameObject.GetComponent<FistFight>().enabled = false;
         }
 
         FistFightModes();
