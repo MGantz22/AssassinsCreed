@@ -10,7 +10,7 @@ public class PlayerScript : MonoBehaviour
     public HealthBar healthbar;
     private float playerEnergy = 100f;
     public float presentEnergy;
-    public EnergyBar energyBar;
+    public EnergyBar energybar;
     public GameObject DamageIndicator;
 
 
@@ -43,7 +43,7 @@ public class PlayerScript : MonoBehaviour
         presentHealth = playerHealth;
         presentEnergy = playerEnergy;
         healthbar.GiveFUllHealth(presentHealth);
-        energyBar.GiveFUllEnergy(presentEnergy);
+        energybar.GiveFUllEnergy(presentEnergy);
     }
 
     private void Update()
@@ -196,14 +196,14 @@ public class PlayerScript : MonoBehaviour
     public void playerEnergyDecrease(float energyDecrease)
     {
         presentEnergy -= energyDecrease;
-        energyBar.SetEnergy(presentEnergy);
+        energybar.SetEnergy(presentEnergy);
     }
 
     IEnumerator setEnergy()
     {
         presentEnergy = 0f;
         yield return new WaitForSeconds(5f);
-        energyBar.GiveFUllEnergy(presentEnergy);
+        energybar.GiveFUllEnergy(presentEnergy);
         presentEnergy = 100f;
     }
 
