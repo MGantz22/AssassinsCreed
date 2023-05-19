@@ -6,6 +6,13 @@ TagManager:
   tags:
   - Barrier
   - ShortBarrier
+  - Shootable
+  - Sword
+  - Rifle
+  - Bazooka
+  - Grenade
+  - Health
+  - Energy
   layers:
   - Default
   - TransparentFX
