@@ -1,4 +1,5 @@
-<h1 align="center">Assasin's Creed Boundry Bay</h1>
+<h1 align="center">Gantz's Creed</h1>
+
 <img
   src="https://store.ubisoft.com/on/demandware.static/-/Sites-masterCatalog/default/dw757e2c61/images/pdpbanner/62ea4f8e09372571f2736a71-bg.jpg"
   alt="photobanner"
