@@ -36,8 +36,19 @@ public class Inventory : MonoBehaviour
      public GameManager GM;
      public Animator anim;
 
+     [Header("Current Weapons")]
+     public GameObject NoWeapon;
+     public GameObject CurrentWeapon1;
+     public GameObject CurrentWeapon2;
+     public GameObject CurrentWeapon3;
+     public GameObject CurrentWeapon4;
+
      private void Update()
      {
+        if(isWeapon1Active == false && isWeapon2Active == false && isWeapon3Active == false && isWeapon4Active == false && fistFightMode == false)
+        {
+            NoWeapon.SetActive(true);
+        }
         if(Input.GetMouseButtonDown(0) && isWeapon1Active == false && isWeapon2Active == false && isWeapon3Active == false && isWeapon4Active == false && fistFightMode == false)
         {
             fistFightMode = true;
@@ -48,44 +59,56 @@ public class Inventory : MonoBehaviour
         {
             isWeapon1Active = true;
             isRifleActive();
+            CurrentWeapon1.SetActive(true);
+            NoWeapon.SetActive(false);
         }
         else if(Input.GetKeyDown("1") && isWeapon1Active == true)
         {
             isWeapon1Active = false;
             isRifleActive();
+            CurrentWeapon1.SetActive(false);
         }
 
         if(Input.GetKeyDown("2") && isWeapon1Active == false && isWeapon2Active == false && isWeapon3Active == false && isWeapon4Active == false && isWeapon2Picked == true)
         {
             isWeapon2Active = true;
             isRifleActive();
+            CurrentWeapon2.SetActive(true);
+            NoWeapon.SetActive(false);
         }
         else if(Input.GetKeyDown("2") && isWeapon2Active == true)
         {
             isWeapon2Active = false;
             isRifleActive();
+            CurrentWeapon2.SetActive(false);
         }
 
         if(Input.GetKeyDown("3") && isWeapon1Active == false && isWeapon2Active == false && isWeapon3Active == false && isWeapon4Active == false && isWeapon3Picked == true)
         {
             isWeapon3Active = true;
             isRifleActive();
+            CurrentWeapon3.SetActive(true);
+            NoWeapon.SetActive(false);
         }
         else if(Input.GetKeyDown("3") && isWeapon3Active == true)
         {
             isWeapon3Active = false;
             isRifleActive();
+            CurrentWeapon3.SetActive(false);
         }
 
          if(Input.GetKeyDown("4") && isWeapon1Active == false && isWeapon2Active == false && isWeapon3Active == false && isWeapon4Active == false && isWeapon4Picked == true)
         {
             isWeapon4Active = true;
             isRifleActive();
+            CurrentWeapon4.SetActive(true);
+            NoWeapon.SetActive(false);
         }
         else if(Input.GetKeyDown("4") && isWeapon4Active == true)
         {
             isWeapon4Active = false;
             isRifleActive();
+            CurrentWeapon4.SetActive(false);
         }
 
         if(Input.GetKeyDown("5") && isWeapon1Active == false && isWeapon2Active == false && isWeapon3Active == false && isWeapon4Active == false && GM.numberofHealth > 0)
