@@ -111,12 +111,20 @@ public class Inventory : MonoBehaviour
             CurrentWeapon4.SetActive(false);
         }
 
-        if(Input.GetKeyDown("5") && isWeapon1Active == false && isWeapon2Active == false && isWeapon3Active == false && isWeapon4Active == false && GM.numberofHealth > 0)
+        if(GM.numberofGrenades <= 0 && isWeapon4Active == true)
+        {
+            Weapon4.SetActive(false);
+            isWeapon4Active = false;
+            CurrentWeapon4.SetActive(false);
+            isRifleActive();
+        }
+
+        if(Input.GetKeyDown("5") && isWeapon1Active == false && isWeapon2Active == false && isWeapon3Active == false && isWeapon4Active == false && GM.numberofHealth > 0 && playerScript.presentHealth < 95)
         {
             StartCoroutine(IncreaseHealth());
         }
 
-        if(Input.GetKeyDown("6") && isWeapon1Active == false && isWeapon2Active == false && isWeapon3Active == false && isWeapon4Active == false && GM.numberofEnergy > 0)
+        if(Input.GetKeyDown("6") && isWeapon1Active == false && isWeapon2Active == false && isWeapon3Active == false && isWeapon4Active == false && GM.numberofEnergy > 0 && playerScript.presentEnergy < 95)
         {
             StartCoroutine(IncreaseEnergy());
         }
